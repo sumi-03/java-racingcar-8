@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.util.InputParser;
 import racingcar.util.InputValidator;
 import racingcar.view.InputView;
 
@@ -10,5 +11,7 @@ public class GameController {
 
         InputValidator.validateCarName(carNamesInput);
         InputValidator.validateAttemptCount(attemptCountInput);
+
+        String[] carNames = InputParser.parseCarNames(carNamesInput);
     }
 }
