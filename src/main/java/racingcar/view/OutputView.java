@@ -3,6 +3,8 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.util.ViewMessages;
 
+import java.util.List;
+
 public class OutputView {
     private OutputView() {
     }
@@ -13,12 +15,27 @@ public class OutputView {
 
     public static void printRoundResult(Car car) {
         String name = car.getName();
-        int status = car.getPosition();
+        int position = car.getPosition();
 
         System.out.print(name + ViewMessages.NAME_SEPARATOR);
-        for (int i = 0; i < status; i++) {
+        for (int i = 0; i < position; i++) {
             System.out.print(ViewMessages.MOVE_SYMBOL);
         }
         System.out.println();
+    }
+
+    public static void printTotalResult(List<Car> cars) {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        List<String> winners = cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
+
+        String winnerNames = String.join(ViewMessages.WINNER_SEPARATOR, winners);
+        System.out.println(ViewMessages.WINNERS + ViewMessages.NAME_SEPARATOR + winnerNames);
     }
 }

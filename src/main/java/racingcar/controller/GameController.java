@@ -32,5 +32,7 @@ public class GameController {
             }
             System.out.println();
         }
+
+        OutputView.printTotalResult(carManager.getCars());
     }
 }
