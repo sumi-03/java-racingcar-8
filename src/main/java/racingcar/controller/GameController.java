@@ -9,5 +9,6 @@ public class GameController {
         String attemptCountInput = InputView.getAttemptCount();
 
         InputValidator.validateCarName(carNamesInput);
+        InputValidator.validateAttemptCount(attemptCountInput);
     }
 }

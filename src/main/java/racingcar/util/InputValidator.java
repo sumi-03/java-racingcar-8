@@ -33,5 +33,18 @@ public class InputValidator {
     }
 
     public void validateAttemptCount(String input) {
+        String trimmedInput = input.trim();
+
+        // 입력값이 숫자로만 구성되어 있는지 확인
+        if (!trimmedInput.matches("\\d+")) {
+            throw new IllegalArgumentException("입력값은 숫자여야 합니다.");
+        }
+
+        int count = Integer.parseInt(trimmedInput);
+
+        // 시도 횟수가 1 미만인 경우
+        if (count < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이야 합니다.");
+        }
     }
 }
