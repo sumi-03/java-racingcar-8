@@ -35,7 +35,7 @@ public class OutputView {
                 .map(Car::getName)
                 .toList();
 
-        String winnerNames = String.join(ViewMessages.COMMA, winners);
+        String winnerNames = String.join(ViewMessages.WINNER_SEPARATOR, winners);
         System.out.println(ViewMessages.WINNERS + ViewMessages.NAME_SEPARATOR + winnerNames);
     }
 }
