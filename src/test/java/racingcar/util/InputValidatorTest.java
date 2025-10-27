@@ -70,4 +70,37 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("형식");
     }
+
+    // 시도 횟수 검증 테스트
+    @Test
+    void 시도_횟수가_정상값이면_예외가_발생하지_않는다() {
+        // given
+        String input = "5";
+
+        // when & then
+        assertThatCode(() -> InputValidator.validateAttemptCount(input))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 시도_횟수가_1미만이면_예외가_발생한다() {
+        // given
+        String input = "0";
+
+        // when & then
+        assertThatThrownBy(() -> InputValidator.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("횟수");
+    }
+
+    @Test
+    void 시도_횟수가_숫자가_아니면_예외가_발생한다() {
+        // given
+        String input = "five";
+
+        // when & then
+        assertThatThrownBy(() -> InputValidator.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자");
+    }
 }
