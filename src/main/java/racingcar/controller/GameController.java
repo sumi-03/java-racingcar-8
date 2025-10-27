@@ -18,5 +18,10 @@ public class GameController {
         String[] carNames = InputParser.parseCarNames(carNamesInput);
 
         carManager = new CarManager(carNames);
+
+        int attemptCount = Integer.parseInt(attemptCountInput);
+        for (int i = 0; i < attemptCount; i++) {
+            carManager.moveAllCars();
+        }
     }
 }
