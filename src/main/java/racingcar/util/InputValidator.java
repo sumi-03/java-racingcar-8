@@ -1,10 +1,7 @@
 package racingcar.util;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class InputValidator {
-    public void validateCarName(String input) {
+public final class InputValidator {
+    public static void validateCarName(String input) {
         // 입력값이 null이거나 공백인 경우
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(ErrorMessages.ERROR_EMPTY_CAR_NAME);
@@ -32,7 +29,7 @@ public class InputValidator {
         }
     }
 
-    public void validateAttemptCount(String input) {
+    public static void validateAttemptCount(String input) {
         String trimmedInput = input.trim();
 
         // 입력값이 숫자로만 구성되어 있는지 확인

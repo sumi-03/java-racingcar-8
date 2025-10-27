@@ -1,9 +1,6 @@
 package racingcar.util;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
-public class ErrorMessages {
+public final class ErrorMessages {
     public static final String ERROR_EMPTY_CAR_NAME = "자동차 이름을 입력해야 합니다.";
     public static final String ERROR_MINIMUM_TWO_CARS = "자동차는 최소 2대여야 합니다.";
     public static final String ERROR_INVALID_CAR_NAME_FORMAT = "자동차 이름은 공백일 수 없습니다.(형식 오류)";
